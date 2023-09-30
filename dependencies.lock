@@ -118,6 +118,18 @@ dependencies:
     source:
       type: idf
     version: 5.1.1
+  leeebo__esp-inih:
+    component_hash: null
+    source:
+      path: C:\Projects\01-Current\ChatGPT-Box\components\leeebo__esp-inih
+      type: local
+    version: 0.0.2
+  leeebo__tinyusb_src:
+    component_hash: null
+    source:
+      path: C:\Projects\01-Current\ChatGPT-Box\components\leeebo__tinyusb_src
+      type: local
+    version: 0.0.4
   lvgl/lvgl:
     component_hash: 51022b16bce6ee90f54a8bd21cd6d497d886916899b577b1bebb9125b91e23fc
     source:
@@ -130,6 +142,6 @@ dependencies:
       path: C:\Projects\01-Current\ChatGPT-Box\components\lvgl__lvgl
       type: local
     version: 8.3.10
-manifest_hash: 96e533fe28ba79d1eec3f7d69ca8135853dad8ce81f671a68350fb1a7c896795
+manifest_hash: 22d7b4d3ae22843477579929ccbfa95cff4dcf379ab1de805514154e56e70594
 target: esp32s3
 version: 1.0.0

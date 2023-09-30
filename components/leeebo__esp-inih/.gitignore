@@ -1,0 +1,5 @@
+fuzzing/findings
+fuzzing/inihfuzz
+build/
+sdkconfig
+sdkconfig.old

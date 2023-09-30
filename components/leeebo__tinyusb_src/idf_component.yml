@@ -1,0 +1,9 @@
+dependencies:
+  idf:
+    version: '>=4.4'
+description: TinyUSB Core code as ESP-IDF component
+targets:
+- esp32s2
+- esp32s3
+url: https://github.com/leeebo/tinyusb_src
+version: 0.0.4

@@ -1,0 +1,47 @@
+menu "ESP INIH"
+    config INI_HANDLER_LINENO
+        bool "call the handler with the line number of the line just read"
+        default n
+    config INI_ALLOW_MULTILINE
+        bool "allow multi-line value parsing"
+        default y
+    config INI_ALLOW_BOM
+        bool "allow a UTF-8 BOM sequence (0xEF 0xBB 0xBF) at the start of the file"
+        default y
+    config INI_START_COMMENT_PREFIXES
+        string "Chars that begin a start-of-line comment"
+        default ";#"
+    config INI_ALLOW_INLINE_COMMENTS
+        bool "allow inline comments"
+        default y
+    config INI_INLINE_COMMENT_PREFIXES
+        string "inline comments prefix"
+        default ";"
+    config INI_STOP_ON_FIRST_ERROR
+        bool "stop parsing on first error"
+        default n
+    config INI_CALL_HANDLER_ON_NEW_SECTION
+        bool "call the handler at the start of each new section (with name and value NULL)"
+        default n
+    config INI_ALLOW_NO_VALUE
+        bool "allow a name without a value (no '=' or ':' on the line), else treat as an error"
+        default n
+    config INI_USE_STACK
+        bool "use stack for line buffer, else use heap"
+        default n
+    config INI_MAX_LINE
+        int "maximum line length for any line in INI file (stack or heap)"
+        default 200
+    config INI_ALLOW_REALLOC
+        bool "allow heap line buffer to grow via realloc()"
+        depends on !INI_USE_STACK
+        default y
+    config INI_INITIAL_ALLOC
+        int "initial size in bytes for heap line buffer"
+        depends on !INI_USE_STACK
+        default 200
+    config INI_CUSTOM_ALLOCATOR
+        bool "using custom ini_malloc, ini_free, and ini_realloc"
+        depends on !INI_USE_STACK
+        default n
+endmenu

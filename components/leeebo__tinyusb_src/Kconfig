@@ -1,0 +1,9 @@
+menu "TinyUSB soucre"
+
+    config USING_SYNOPSYS_DWC2_DRIVER
+        bool "Using synopsys dwc2 driver, otherwise using esp32sx dcd driver"
+        default n
+        help
+            "For esp32sx, user can choose esp32sx dcd driver or common synopsys dwc2 driver"
+
+endmenu

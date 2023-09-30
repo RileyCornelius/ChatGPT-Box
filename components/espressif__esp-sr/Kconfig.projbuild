@@ -36,7 +36,7 @@ config USE_WAKENET
 
 choice SR_WN_MODEL_LOAD
     prompt "Select wake words"
-    default SR_WN_WN9_HILEXIN
+    default SR_WN_WN9_HIESP
     depends on USE_WAKENET
     help
         Select the Wake Words to be loaded.
@@ -122,7 +122,7 @@ config USE_MULTINET
 
 choice CHINESE_SR_MN_MODEL_SEL
     prompt "Chinese Speech Commands Model"
-    default SR_MN_CN_MULTINET4_5_SINGLE_RECOGNITION
+    default SR_MN_CN_NONE
     depends on USE_MULTINET
     help
         Select the Wake Word Engine to be used.
@@ -158,7 +158,7 @@ endchoice
 
 choice ENGLISH_SR_MN_MODEL_SEL
     prompt "English Speech Commands Model"
-    default SR_MN_EN_NONE
+    default SR_MN_EN_MULTINET5_SINGLE_RECOGNITION_QUANT8
     depends on USE_MULTINET
     help
         Select the Wake Word Engine to be used.
