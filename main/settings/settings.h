@@ -9,7 +9,7 @@
 
 #define DEFAULT_ESP_WIFI_SSID CONFIG_ESP_WIFI_SSID
 #define DEFAULT_ESP_WIFI_PASS CONFIG_ESP_WIFI_PASSWORD
-#define DEFAULT_OPENAI_KEY CONFIG_OPENAI_KEY
+#define DEFAULT_OPENAI_KEY CONFIG_OPENAI_API_KEY
 
 #define SSID_SIZE 32
 #define PASSWORD_SIZE 64
@@ -23,7 +23,8 @@ typedef struct
 } sys_param_t;
 
 void uf2_nvs_storage_init(void);
-esp_err_t settings_factory_reset(void);
+esp_err_t settings_reset_parameter_to_nvs(void);
 esp_err_t settings_read_parameter_from_nvs(void);
 esp_err_t settings_write_parameter_to_nvs(void);
 sys_param_t *settings_get_parameter(void);
+void settings_set_parameter(sys_param_t *param);

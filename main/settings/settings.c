@@ -34,33 +34,33 @@ static void uf2_nvs_modified_cb()
 
 void uf2_nvs_storage_init(void)
 {
-    /* install UF2 NVS */
     tinyuf2_nvs_config_t nvs_config = DEFAULT_TINYUF2_NVS_CONFIG();
     nvs_config.part_name = uf2_nvs_partition;
     nvs_config.namespace_name = uf2_nvs_namespace;
     nvs_config.modified_cb = uf2_nvs_modified_cb;
 
+    ESP_LOGI(TAG, "uf2 nvs storage init");
     ESP_ERROR_CHECK(esp_tinyuf2_install(NULL, &nvs_config));
 }
 
-esp_err_t settings_factory_reset(void)
+esp_err_t settings_reset_parameter_to_nvs(void)
 {
-    ESP_LOGW(TAG, "ssid|password:[%s:%s]", DEFAULT_ESP_WIFI_SSID, DEFAULT_ESP_WIFI_PASS);
-    if ((0 == strlen(DEFAULT_ESP_WIFI_SSID)) || (0 == strlen(DEFAULT_ESP_WIFI_PASS)))
+    ESP_LOGW(TAG, "default ssid|password:[%s:%s]", DEFAULT_ESP_WIFI_SSID, DEFAULT_ESP_WIFI_PASS);
+    if ((0 == strlen(DEFAULT_ESP_WIFI_SSID)) || (0 == strlen(DEFAULT_ESP_WIFI_PASS)) || (0 == strlen(DEFAULT_OPENAI_KEY)))
     {
-        memcpy(&g_sys_param.ssid[0], "DEFAULT_ESP_WIFI_SSID", strlen("DEFAULT_ESP_WIFI_SSID"));
-        memcpy(&g_sys_param.password[0], "DEFAULT_ESP_WIFI_PASS", strlen("DEFAULT_ESP_WIFI_PASS"));
+        memcpy(&g_sys_param.ssid[0], "", strlen(""));
+        memcpy(&g_sys_param.password[0], "", strlen(""));
+        memcpy(&g_sys_param.password[0], "", strlen(""));
     }
     else
     {
         memcpy(&g_sys_param.ssid[0], DEFAULT_ESP_WIFI_SSID, strlen(DEFAULT_ESP_WIFI_SSID));
         memcpy(&g_sys_param.password[0], DEFAULT_ESP_WIFI_PASS, strlen(DEFAULT_ESP_WIFI_PASS));
+        memcpy(&g_sys_param.key[0], DEFAULT_OPENAI_KEY, strlen(DEFAULT_OPENAI_KEY));
     }
 
-    settings_write_parameter_to_nvs();
-
-    esp_restart();
-    return ESP_OK;
+    // Write default values to NVS
+    return settings_write_parameter_to_nvs();
 }
 
 esp_err_t settings_read_parameter_from_nvs(void)
@@ -103,9 +103,16 @@ esp_err_t settings_read_parameter_from_nvs(void)
     }
     nvs_close(my_handle);
 
-    ESP_LOGI(TAG, "stored ssid:%s", g_sys_param.ssid);
-    ESP_LOGI(TAG, "stored password:%s", g_sys_param.password);
-    ESP_LOGI(TAG, "stored OpenAI:%s", g_sys_param.key);
+    ESP_LOGI(TAG, "got ssid:%s", g_sys_param.ssid);
+    ESP_LOGI(TAG, "got password:%s", g_sys_param.password);
+    ESP_LOGI(TAG, "got OpenAI:%s", g_sys_param.key);
+
+    if (0 == strlen(g_sys_param.ssid) || 0 == strlen(g_sys_param.password) || 0 == strlen(g_sys_param.key))
+    {
+        ESP_LOGI(TAG, "No SSID or Password or OpenAI key found on nvs");
+        goto err;
+    }
+
     return ESP_OK;
 
 err:
@@ -113,17 +120,14 @@ err:
     {
         nvs_close(my_handle);
     }
-    // settings_factory_reset();
-    settings_write_parameter_to_nvs();
-    uf2_nvs_storage_init();
-    return ret;
+
+    // If any error occurred, reset to default values;
+    return settings_reset_parameter_to_nvs();
 }
 
 esp_err_t settings_write_parameter_to_nvs(void)
 {
     ESP_LOGI(TAG, "Saving settings");
-
-    size_t buf_len_long;
     esp_err_t err = nvs_open_from_partition(uf2_nvs_partition, uf2_nvs_namespace, NVS_READWRITE, &my_handle);
     if (err != ESP_OK)
     {
@@ -131,48 +135,27 @@ esp_err_t settings_write_parameter_to_nvs(void)
     }
     else
     {
-        buf_len_long = sizeof(g_sys_param.ssid);
-        err = nvs_get_str(my_handle, "ssid", g_sys_param.ssid, &buf_len_long);
-        if (err != ESP_OK || buf_len_long == 0)
-        {
-            ESP_ERROR_CHECK(nvs_set_str(my_handle, "ssid", CONFIG_ESP_WIFI_SSID));
-            ESP_ERROR_CHECK(nvs_commit(my_handle));
-            ESP_LOGI(TAG, "no ssid, give a init value to nvs");
-        }
-        else
-        {
-            ESP_LOGI(TAG, "stored ssid:%s", g_sys_param.ssid);
-        }
+        ESP_ERROR_CHECK(nvs_set_str(my_handle, "ssid", g_sys_param.ssid));
+        ESP_ERROR_CHECK(nvs_commit(my_handle));
 
-        buf_len_long = sizeof(g_sys_param.password);
-        err = nvs_get_str(my_handle, "password", g_sys_param.password, &buf_len_long);
-        if (err != ESP_OK || buf_len_long == 0)
-        {
-            ESP_ERROR_CHECK(nvs_set_str(my_handle, "password", CONFIG_ESP_WIFI_PASSWORD));
-            ESP_ERROR_CHECK(nvs_commit(my_handle));
-            ESP_LOGI(TAG, "no password, give a init value to nvs");
-        }
-        else
-        {
-            ESP_LOGI(TAG, "stored password:%s", g_sys_param.password);
-        }
+        ESP_ERROR_CHECK(nvs_set_str(my_handle, "password", g_sys_param.password));
+        ESP_ERROR_CHECK(nvs_commit(my_handle));
 
-        buf_len_long = sizeof(g_sys_param.key);
-        err = nvs_get_str(my_handle, "ChatGPT_key", g_sys_param.key, &buf_len_long);
-        if (err != ESP_OK || buf_len_long == 0)
-        {
-            ESP_ERROR_CHECK(nvs_set_str(my_handle, "ChatGPT_key", CONFIG_OPENAI_API_KEY));
-            ESP_ERROR_CHECK(nvs_commit(my_handle));
-            ESP_LOGI(TAG, "no ChatGPT key, give a init value to key");
-        }
-        else
-        {
-            ESP_LOGI(TAG, "stored ChatGPT key:%s", g_sys_param.key);
-        }
+        ESP_ERROR_CHECK(nvs_set_str(my_handle, "ChatGPT_key", g_sys_param.key));
+        ESP_ERROR_CHECK(nvs_commit(my_handle));
+
+        ESP_LOGI(TAG, "stored ssid:%s", g_sys_param.ssid);
+        ESP_LOGI(TAG, "stored password:%s", g_sys_param.password);
+        ESP_LOGI(TAG, "stored ChatGPT key:%s", g_sys_param.key);
     }
     nvs_close(my_handle);
 
     return ESP_OK == err ? ESP_OK : ESP_FAIL;
+}
+
+void settings_set_parameter(sys_param_t *param)
+{
+    memcpy(&g_sys_param, param, sizeof(sys_param_t));
 }
 
 sys_param_t *settings_get_parameter(void)

@@ -88,8 +88,6 @@ void ui_event_DropdownSettingsRegion( lv_event_t * e);
 extern lv_obj_t *ui_DropdownSettingsRegion;
 void ui_event_ImageSettingsBack( lv_event_t * e);
 extern lv_obj_t *ui_ImageSettingsBack;
-void ui_event_ImageSettingsReset( lv_event_t * e);
-extern lv_obj_t *ui_ImageSettingsReset;
 void ui_event____initial_actions0( lv_event_t * e);
 extern lv_obj_t *ui____initial_actions0;
 

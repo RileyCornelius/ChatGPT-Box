@@ -995,44 +995,6 @@
                           }
                         ],
                         "InheritedType": 10
-                      },
-                      {
-                        "nid": -1904598019,
-                        "strtype": "_custom/action",
-                        "strval": "CALL FUNCTION",
-                        "childs": [
-                          {
-                            "nid": -886550310,
-                            "strtype": "CALL FUNCTION/Name",
-                            "strval": "CALL FUNCTION",
-                            "InheritedType": 10
-                          },
-                          {
-                            "nid": 997775486,
-                            "strtype": "CALL FUNCTION/Call",
-                            "strval": "<{Function_name}>( event_struct )",
-                            "InheritedType": 10
-                          },
-                          {
-                            "nid": 1553360424,
-                            "strtype": "CALL FUNCTION/CallC",
-                            "strval": "<{Function_name}>( e );",
-                            "InheritedType": 10
-                          },
-                          {
-                            "nid": -1325418473,
-                            "strtype": "CALL FUNCTION/Function_name",
-                            "strval": "EventSetupClicked",
-                            "InheritedType": 10
-                          },
-                          {
-                            "nid": 12980411,
-                            "strtype": "CALL FUNCTION/Dont_export_function",
-                            "strval": "True",
-                            "InheritedType": 2
-                          }
-                        ],
-                        "InheritedType": 10
                       }
                     ],
                     "InheritedType": 4
@@ -1391,7 +1353,8 @@
                 "InheritedType": 11
               }
             ],
-            "saved_objtypeKey": "PANEL"
+            "saved_objtypeKey": "PANEL",
+            "tree_closed": true
           },
           {
             "guid": "GUID25962234-792117S6882150",
@@ -3992,7 +3955,7 @@
               {
                 "nid": -2072911301,
                 "strtype": "LABEL/Text",
-                "strval": "Info Provisioning",
+                "strval": "Configuration",
                 "InheritedType": 10
               },
               {
@@ -4314,7 +4277,7 @@
                   {
                     "nid": 2043656732,
                     "strtype": "LABEL/Text",
-                    "strval": "Restart",
+                    "strval": "Start",
                     "InheritedType": 10
                   },
                   {
@@ -4405,7 +4368,7 @@
                 "strtype": "OBJECT/Position",
                 "intarray": [
                   0,
-                  -20
+                  -10
                 ],
                 "InheritedType": 7
               },
@@ -4414,8 +4377,8 @@
                 "flags": 17,
                 "strtype": "OBJECT/Size",
                 "intarray": [
-                  72,
-                  24
+                  87,
+                  33
                 ],
                 "InheritedType": 7
               },
@@ -5081,44 +5044,6 @@
                       }
                     ],
                     "InheritedType": 10
-                  },
-                  {
-                    "nid": 440956567,
-                    "strtype": "_custom/action",
-                    "strval": "CALL FUNCTION",
-                    "childs": [
-                      {
-                        "nid": 520019541,
-                        "strtype": "CALL FUNCTION/Name",
-                        "strval": "CALL FUNCTION",
-                        "InheritedType": 10
-                      },
-                      {
-                        "nid": 711167622,
-                        "strtype": "CALL FUNCTION/Call",
-                        "strval": "<{Function_name}>( event_struct )",
-                        "InheritedType": 10
-                      },
-                      {
-                        "nid": -529641672,
-                        "strtype": "CALL FUNCTION/CallC",
-                        "strval": "<{Function_name}>( e );",
-                        "InheritedType": 10
-                      },
-                      {
-                        "nid": 1311938138,
-                        "strtype": "CALL FUNCTION/Function_name",
-                        "strval": "EventWifiResetBackClicked",
-                        "InheritedType": 10
-                      },
-                      {
-                        "nid": -1063303787,
-                        "strtype": "CALL FUNCTION/Dont_export_function",
-                        "strval": "True",
-                        "InheritedType": 2
-                      }
-                    ],
-                    "InheritedType": 10
                   }
                 ],
                 "InheritedType": 4
@@ -5392,7 +5317,7 @@
               {
                 "nid": -1508587320,
                 "strtype": "LABEL/Text",
-                "strval": "1. Press the \\\"Start\\\" button to enable USB flash drive.\\n2. Connect the box to your PC to add the OpenAI key and Wi-Fi credentials in the configuration.ini file.\\n3. Follow the on-screen prompts to complete the setup process.",
+                "strval": "1. Press the \\\"Start\\\" button to enable USB flash drive.\\n2. Connect the box to your PC then add your OpenAI key and Wi-Fi credentials to the CONFIG.INI file.\\n3. Press \\\"Reboot\\\" to save the credentials and reboot the box.",
                 "InheritedType": 10
               },
               {
@@ -17879,375 +17804,6 @@
               }
             ],
             "saved_objtypeKey": "IMAGE"
-          },
-          {
-            "guid": "GUID16795572-1013669S4502181",
-            "deepid": 361239716,
-            "locked": false,
-            "properties": [
-              {
-                "nid": -1517648026,
-                "strtype": "OBJECT/Name",
-                "strval": "ImageSettingsReset",
-                "InheritedType": 10
-              },
-              {
-                "nid": -1968348582,
-                "strtype": "OBJECT/Layout",
-                "InheritedType": 1
-              },
-              {
-                "Flow": 0,
-                "Wrap": false,
-                "Reversed": false,
-                "MainAlignment": 0,
-                "CrossAlignment": 0,
-                "TrackAlignment": 0,
-                "LayoutType": 0,
-                "nid": -457779172,
-                "strtype": "OBJECT/Layout_type",
-                "strval": "No_layout",
-                "InheritedType": 13
-              },
-              {
-                "nid": 1433223891,
-                "strtype": "OBJECT/Transform",
-                "InheritedType": 1
-              },
-              {
-                "nid": -1220750600,
-                "flags": 17,
-                "strtype": "OBJECT/Position",
-                "intarray": [
-                  -10,
-                  10
-                ],
-                "InheritedType": 7
-              },
-              {
-                "nid": 1919663414,
-                "flags": 51,
-                "strtype": "OBJECT/Size",
-                "intarray": [
-                  1,
-                  1
-                ],
-                "InheritedType": 7
-              },
-              {
-                "nid": 2013605734,
-                "strtype": "OBJECT/Align",
-                "strval": "TOP_RIGHT",
-                "InheritedType": 3
-              },
-              {
-                "nid": -1358852134,
-                "strtype": "OBJECT/Flags",
-                "InheritedType": 1
-              },
-              {
-                "nid": -497647685,
-                "strtype": "OBJECT/Hidden",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": -1643962335,
-                "strtype": "OBJECT/Clickable",
-                "strval": "True",
-                "InheritedType": 2
-              },
-              {
-                "nid": 17129923,
-                "strtype": "OBJECT/Checkable",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": -490449377,
-                "strtype": "OBJECT/Press_lock",
-                "strval": "True",
-                "InheritedType": 2
-              },
-              {
-                "nid": -2092545266,
-                "strtype": "OBJECT/Click_focusable",
-                "strval": "True",
-                "InheritedType": 2
-              },
-              {
-                "nid": 974280670,
-                "strtype": "OBJECT/Adv_hittest",
-                "strval": "True",
-                "InheritedType": 2
-              },
-              {
-                "nid": 755687786,
-                "strtype": "OBJECT/Ignore_layout",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": 730961562,
-                "strtype": "OBJECT/Floating",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": -1962506975,
-                "strtype": "IMAGE/Overflow_visible",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": -1028900547,
-                "strtype": "OBJECT/Flex_in_new_track",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": -345252075,
-                "strtype": "OBJECT/Event_bubble",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": -454977880,
-                "strtype": "OBJECT/Gesture_bubble",
-                "strval": "True",
-                "InheritedType": 2
-              },
-              {
-                "nid": -271948189,
-                "strtype": "OBJECT/Snappable",
-                "strval": "True",
-                "InheritedType": 2
-              },
-              {
-                "nid": 651110178,
-                "strtype": "OBJECT/Scrollable",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": -1713289013,
-                "strtype": "OBJECT/Scroll_elastic",
-                "strval": "True",
-                "InheritedType": 2
-              },
-              {
-                "nid": -115857357,
-                "strtype": "OBJECT/Scroll_momentum",
-                "strval": "True",
-                "InheritedType": 2
-              },
-              {
-                "nid": 88145832,
-                "strtype": "OBJECT/Scroll_on_focus",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": -2091736043,
-                "strtype": "OBJECT/Scroll_chain",
-                "strval": "True",
-                "InheritedType": 2
-              },
-              {
-                "nid": 710118189,
-                "strtype": "IMAGE/Scroll_with_arrow",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": -703756354,
-                "strtype": "OBJECT/Scroll_one",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": -934422784,
-                "strtype": "OBJECT/Scrollbar_mode",
-                "strval": "AUTO",
-                "InheritedType": 3
-              },
-              {
-                "nid": -864794826,
-                "strtype": "OBJECT/Scroll_direction",
-                "strval": "ALL",
-                "InheritedType": 3
-              },
-              {
-                "nid": -952557521,
-                "flags": 1048576,
-                "strtype": "OBJECT/States",
-                "InheritedType": 1
-              },
-              {
-                "nid": -1518114379,
-                "strtype": "OBJECT/Checked",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": -1948433475,
-                "strtype": "OBJECT/Disabled",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": 832139396,
-                "strtype": "OBJECT/Focused",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": 1926809844,
-                "strtype": "OBJECT/Pressed",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": 543549407,
-                "strtype": "OBJECT/User_1",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": -325119310,
-                "strtype": "OBJECT/User_2",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": -670722381,
-                "strtype": "OBJECT/User_3",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": 1811257948,
-                "strtype": "OBJECT/User_4",
-                "strval": "False",
-                "InheritedType": 2
-              },
-              {
-                "nid": -666697512,
-                "strtype": "IMAGE/Image",
-                "InheritedType": 1
-              },
-              {
-                "nid": -1037480413,
-                "strtype": "IMAGE/Asset",
-                "strval": "assets\\reset_icon.png",
-                "InheritedType": 5
-              },
-              {
-                "nid": -182094063,
-                "strtype": "IMAGE/Pivot",
-                "intarray": [
-                  0,
-                  0
-                ],
-                "InheritedType": 7
-              },
-              {
-                "nid": -1102351391,
-                "strtype": "IMAGE/Rotation",
-                "InheritedType": 6
-              },
-              {
-                "nid": 100025427,
-                "strtype": "IMAGE/Scale",
-                "integer": 256,
-                "InheritedType": 6
-              },
-              {
-                "part": "lv.PART.MAIN",
-                "childs": [],
-                "nid": -317721421,
-                "strtype": "IMAGE/Style_main",
-                "strval": "lv.PART.MAIN, Rectangle, Image",
-                "InheritedType": 11
-              },
-              {
-                "disabled": false,
-                "nid": 747652878,
-                "strtype": "_event/EventHandler",
-                "strval": "CLICKED",
-                "childs": [
-                  {
-                    "nid": -457647870,
-                    "strtype": "_custom/name",
-                    "strval": "EventImageSettingsResetClick",
-                    "InheritedType": 10
-                  },
-                  {
-                    "nid": -933971595,
-                    "strtype": "_custom/condition_C",
-                    "strval": "",
-                    "InheritedType": 10
-                  },
-                  {
-                    "nid": 1170495546,
-                    "strtype": "_custom/condition_P",
-                    "strval": "",
-                    "InheritedType": 10
-                  },
-                  {
-                    "nid": 1577863914,
-                    "strtype": "_event/action",
-                    "strval": "CHANGE SCREEN",
-                    "childs": [
-                      {
-                        "nid": 510497487,
-                        "strtype": "CHANGE SCREEN/Name",
-                        "strval": "CHANGE SCREEN",
-                        "InheritedType": 10
-                      },
-                      {
-                        "nid": -860935032,
-                        "strtype": "CHANGE SCREEN/Call",
-                        "strval": "ChangeScreen( <{Screen_to}>, lv.SCR_LOAD_ANIM.<{Fade_mode}>, <{Speed}>, <{Delay}>)",
-                        "InheritedType": 10
-                      },
-                      {
-                        "nid": -1273237485,
-                        "strtype": "CHANGE SCREEN/CallC",
-                        "strval": "_ui_screen_change( &<{Screen_to}>, LV_SCR_LOAD_ANIM_<{Fade_mode}>, <{Speed}>, <{Delay}>, &<{Screen_to}>_screen_init);",
-                        "InheritedType": 10
-                      },
-                      {
-                        "nid": -2096774545,
-                        "strtype": "CHANGE SCREEN/Screen_to",
-                        "strval": "GUID13318853-1012555S432181",
-                        "InheritedType": 9
-                      },
-                      {
-                        "nid": 1261301556,
-                        "strtype": "CHANGE SCREEN/Fade_mode",
-                        "strval": "NONE",
-                        "InheritedType": 3
-                      },
-                      {
-                        "nid": 483668864,
-                        "strtype": "CHANGE SCREEN/Speed",
-                        "InheritedType": 6
-                      },
-                      {
-                        "nid": 1856188200,
-                        "strtype": "CHANGE SCREEN/Delay",
-                        "InheritedType": 6
-                      }
-                    ],
-                    "InheritedType": 10
-                  }
-                ],
-                "InheritedType": 4
-              }
-            ],
-            "saved_objtypeKey": "IMAGE",
-            "tree_closed": true
           }
         ],
         "isPage": true,
@@ -19429,7 +18985,7 @@
     "theme_color2": 0,
     "exportFolderPath": "C:\\Projects\\01-Current\\ChatGPT-Box\\main\\ui",
     "projectExportFolderPath": "C:\\Projects\\01-Current\\ChatGPT-Box",
-    "backup_cnt": 365,
+    "backup_cnt": 370,
     "autosave_cnt": 0,
     "lvgl_version": "8.3.4",
     "callfuncsexport": "DONT_EXPORT",

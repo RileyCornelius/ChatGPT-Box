@@ -151,18 +151,7 @@ lv_obj_set_y( ui_ImageSettingsBack, 10 );
 lv_obj_add_flag( ui_ImageSettingsBack, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_ADV_HITTEST );   /// Flags
 lv_obj_clear_flag( ui_ImageSettingsBack, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
 
-ui_ImageSettingsReset = lv_img_create(ui_ScreenSettings);
-lv_img_set_src(ui_ImageSettingsReset, &ui_img_reset_icon_png);
-lv_obj_set_width( ui_ImageSettingsReset, LV_SIZE_CONTENT);  /// 1
-lv_obj_set_height( ui_ImageSettingsReset, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_ImageSettingsReset, -10 );
-lv_obj_set_y( ui_ImageSettingsReset, 10 );
-lv_obj_set_align( ui_ImageSettingsReset, LV_ALIGN_TOP_RIGHT );
-lv_obj_add_flag( ui_ImageSettingsReset, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_ADV_HITTEST );   /// Flags
-lv_obj_clear_flag( ui_ImageSettingsReset, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
-
 lv_obj_add_event_cb(ui_DropdownSettingsRegion, ui_event_DropdownSettingsRegion, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_ImageSettingsBack, ui_event_ImageSettingsBack, LV_EVENT_ALL, NULL);
-lv_obj_add_event_cb(ui_ImageSettingsReset, ui_event_ImageSettingsReset, LV_EVENT_ALL, NULL);
 
 }

@@ -16,17 +16,17 @@ lv_obj_set_width( ui_LabelWifiResetTitle, 230);
 lv_obj_set_height( ui_LabelWifiResetTitle, LV_SIZE_CONTENT);   /// 140
 lv_obj_set_x( ui_LabelWifiResetTitle, 45 );
 lv_obj_set_y( ui_LabelWifiResetTitle, 15 );
-lv_label_set_text(ui_LabelWifiResetTitle,"Info Provisioning");
+lv_label_set_text(ui_LabelWifiResetTitle,"Configuration");
 lv_obj_set_style_text_color(ui_LabelWifiResetTitle, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
 lv_obj_set_style_text_opa(ui_LabelWifiResetTitle, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
 lv_obj_set_style_text_align(ui_LabelWifiResetTitle, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN| LV_STATE_DEFAULT);
 lv_obj_set_style_text_font(ui_LabelWifiResetTitle, &ui_font_PingFangEN20, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_ButtonWifiResetConfirm = lv_btn_create(ui_ScreenWifiReset);
-lv_obj_set_width( ui_ButtonWifiResetConfirm, 72);
-lv_obj_set_height( ui_ButtonWifiResetConfirm, 24);
+lv_obj_set_width( ui_ButtonWifiResetConfirm, 87);
+lv_obj_set_height( ui_ButtonWifiResetConfirm, 33);
 lv_obj_set_x( ui_ButtonWifiResetConfirm, 0 );
-lv_obj_set_y( ui_ButtonWifiResetConfirm, -20 );
+lv_obj_set_y( ui_ButtonWifiResetConfirm, -10 );
 lv_obj_set_align( ui_ButtonWifiResetConfirm, LV_ALIGN_BOTTOM_MID );
 lv_obj_add_flag( ui_ButtonWifiResetConfirm, LV_OBJ_FLAG_SCROLL_ON_FOCUS );   /// Flags
 lv_obj_clear_flag( ui_ButtonWifiResetConfirm, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
@@ -38,7 +38,7 @@ ui_LabelSetupBtn1 = lv_label_create(ui_ButtonWifiResetConfirm);
 lv_obj_set_width( ui_LabelSetupBtn1, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_LabelSetupBtn1, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_align( ui_LabelSetupBtn1, LV_ALIGN_CENTER );
-lv_label_set_text(ui_LabelSetupBtn1,"Restart");
+lv_label_set_text(ui_LabelSetupBtn1,"Start");
 lv_obj_set_style_text_color(ui_LabelSetupBtn1, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT );
 lv_obj_set_style_text_opa(ui_LabelSetupBtn1, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
 lv_obj_set_style_text_align(ui_LabelSetupBtn1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN| LV_STATE_DEFAULT);
@@ -59,7 +59,7 @@ lv_obj_set_height( ui_LabelWifiResetContent, lv_pct(61));
 lv_obj_set_x( ui_LabelWifiResetContent, lv_pct(0) );
 lv_obj_set_y( ui_LabelWifiResetContent, lv_pct(20) );
 lv_obj_set_align( ui_LabelWifiResetContent, LV_ALIGN_TOP_MID );
-lv_label_set_text(ui_LabelWifiResetContent,"1. Press the \"Start\" button to enable USB flash drive.\n2. Connect the box to your PC to add the OpenAI key and Wi-Fi credentials in the configuration.ini file.\n3. Follow the on-screen prompts to complete the setup process.");
+lv_label_set_text(ui_LabelWifiResetContent,"1. Press the \"Start\" button to enable USB flash drive.\n2. Connect the box to your PC then add your OpenAI key and Wi-Fi credentials to the CONFIG.INI file.\n3. Press \"Reboot\" to save the credentials and reboot the box.");
 lv_obj_set_style_text_color(ui_LabelWifiResetContent, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
 lv_obj_set_style_text_opa(ui_LabelWifiResetContent, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
 lv_obj_set_style_text_letter_space(ui_LabelWifiResetContent, 0, LV_PART_MAIN| LV_STATE_DEFAULT);

@@ -10,10 +10,8 @@
 extern "C" {
 #endif
 
-void EventSetupClick(lv_event_t * e);
 void EventBtnSetupClick(lv_event_t * e);
 void EventWifiResetConfirmClick(lv_event_t * e);
-void EventWifiResetBackClick(lv_event_t * e);
 void EventPanelSleepClickCb(lv_event_t * e);
 void EventSettingsRegionValueChange(lv_event_t * e);
 
