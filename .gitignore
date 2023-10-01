@@ -3,3 +3,4 @@ sdkconfig
 sdkconfig.old
 squareline/cache
 squareline/backup
+dependencies.lock

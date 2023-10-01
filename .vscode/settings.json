@@ -6,4 +6,9 @@
         "board/esp32s3-builtin.cfg"
     ],
     "idf.flashType": "UART",
+    "files.associations": {
+        "app_tts_api.h": "c",
+        "app_wifi.h": "c",
+        "stdio.h": "c"
+    },
 }

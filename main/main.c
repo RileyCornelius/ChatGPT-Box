@@ -13,7 +13,7 @@
 #include "nvs_flash.h"
 #include "app_ui_ctrl.h"
 #include "OpenAI.h"
-#include "tts_api.h"
+#include "app_tts_api.h"
 #include "app_sr.h"
 #include "bsp/esp-bsp.h"
 #include "bsp_board.h"
