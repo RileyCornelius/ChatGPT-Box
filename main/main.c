@@ -43,7 +43,7 @@ esp_err_t start_openai(uint8_t *audio, int audio_len)
         audioTranscription->setLanguage(audioTranscription, "en");
         audioTranscription->setTemperature(audioTranscription, 0.2);
 
-        chatCompletion->setModel(chatCompletion, "gpt-3.5-turbo");
+        chatCompletion->setModel(chatCompletion, CONFIG_OPENAI_MODEL);
         chatCompletion->setSystem(chatCompletion, "user");
         chatCompletion->setMaxTokens(chatCompletion, CONFIG_MAX_TOKEN);
         chatCompletion->setTemperature(chatCompletion, 0.2);

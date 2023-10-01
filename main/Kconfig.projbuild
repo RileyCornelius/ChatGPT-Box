@@ -15,6 +15,11 @@ menu "Example Configuration"
         default ""
         help
             OpenAI api key for the example to use.
+    config OPENAI_MODEL
+        string "OpenAI model"
+        default "gpt-3.5-turbo"
+        help
+            OpenAI model eg gpt-3.5-turbo (chatgpt).
 
     config VOICE_ID
         string "Speaker Id"

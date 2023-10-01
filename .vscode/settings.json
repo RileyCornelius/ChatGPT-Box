@@ -1,5 +1,5 @@
 {
-    "C_Cpp.intelliSenseEngine": "Tag Parser",
+    "C_Cpp.intelliSenseEngine": "default",
     "idf.portWin": "COM7",
     "idf.adapterTargetName": "esp32s3",
     "idf.openOcdConfigs": [
@@ -9,6 +9,11 @@
     "files.associations": {
         "app_tts_api.h": "c",
         "app_wifi.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "random": "c",
+        "queue": "c",
+        "list": "c",
+        "esp-bsp.h": "c",
+        "esp-box.h": "c"
     },
 }

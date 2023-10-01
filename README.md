@@ -9,6 +9,8 @@
 
 In this example, we are utilizing the OpenAI API in conjunction with an ESP-BOX to create a voice-based chatbot. The ESP-BOX is a device or system that incorporates an ESP32-S3 microcontroller. The purpose of this implementation is to enable users to communicate with the chatbot using spoken language. The process involves capturing audio input from the user, sending it to the OpenAI API for processing, and receiving a response that is then converted into speech and played back to the user.
 
+This example was originally created my espressif: [esp-box chatpgt_demo](https://github.com/espressif/esp-box/tree/master/examples/chatgpt_demo)
+
 ## How to Use The Example
 
 ### **Software Required**
@@ -20,7 +22,7 @@ In this example, we are utilizing the OpenAI API in conjunction with an ESP-BOX 
 * A ESP32-S3-BOX，ESP32-S3-BOX-Lite or ESP32-S3-BOX-3
 * A USB-C cable for power supply and programming
 
-# **Build and Flash with VSCode or Command Line**
+# **Build and Flash**
 
 
 ## VSCode
@@ -35,13 +37,13 @@ In the bottom bar:
 - Press `Set Espressif target device` select ESP32-S3 and UART
 - Press `Select port to use` select the port of the esp-box
 
-**3. Hardware Selection and Provisioning**
+**3. Configuration**
 
 - Press `SDK Configuration Editor (meunconfig)`
 - Navigate to the `HMI Board Config`
 - Select BSP board (ESP32-S3-BOX or ESP32-S3-BOX-Lite or ESP32-S3-3)
 - Navigate to `Example Configuration`
-- Enter WiFi SSID, WiFi Password and OpenAI Key
+- Enter WiFi SSID, WiFi Password and OpenAI api key
 
 **4. Build, Flash and Monitor**
 
@@ -65,14 +67,14 @@ git clone https://github.com/RileyCornelius/ChatGPT-Box
 cd ChatGPT-Box
 ```
 
-**3. Hardware Selection** 
+**3. Configuration** 
 
 
 ```bash
 idf.py menuconfig 
 ```
 
-Use `J and K` to navigate. Navigate to **HMI Board Config**. Select the appropriate hardware (ESP32-S3-BOX or ESP32-S3-BOX-Lite or ESP32-S3-3). Navigate to **Example Configuration**. Enter WiFi SSID, WiFi Password and OpenAI Key. 
+Use `J and K` to navigate. Navigate to **HMI Board Config**. Select the appropriate hardware (ESP32-S3-BOX or ESP32-S3-BOX-Lite or ESP32-S3-3). Navigate to **Example Configuration**. Enter WiFi SSID, WiFi Password and OpenAI api key. 
 
 **4. Build the project**
 
