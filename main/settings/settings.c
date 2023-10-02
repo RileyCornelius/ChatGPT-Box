@@ -43,6 +43,18 @@ void uf2_nvs_storage_init(void)
     ESP_ERROR_CHECK(esp_tinyuf2_install(NULL, &nvs_config));
 }
 
+esp_err_t settings_nvs_init(void)
+{
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
+    {
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        ret = nvs_flash_init();
+    }
+    ESP_ERROR_CHECK(ret);
+    return ret;
+}
+
 esp_err_t settings_reset_parameter_to_nvs(void)
 {
     ESP_LOGW(TAG, "default ssid|password:[%s:%s]", DEFAULT_ESP_WIFI_SSID, DEFAULT_ESP_WIFI_PASS);

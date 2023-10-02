@@ -1,3 +1,7 @@
 #pragma once
 
-void download_image_request(const char *url);
+/**
+ * Download image from url
+ * @param url url of image
+ */
+void download_image_request(char *url);

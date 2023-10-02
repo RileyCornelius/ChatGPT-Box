@@ -22,6 +22,7 @@ typedef struct
     char key[KEY_SIZE];           /* OpenAI key. */
 } sys_param_t;
 
+esp_err_t settings_nvs_init(void);
 void uf2_nvs_storage_init(void);
 esp_err_t settings_reset_parameter_to_nvs(void);
 esp_err_t settings_read_parameter_from_nvs(void);

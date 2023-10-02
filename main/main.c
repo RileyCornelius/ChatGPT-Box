@@ -109,35 +109,8 @@ static void audio_play_finish_cb(void)
     }
 }
 
-void app_main()
+void monitor_memory_task(void)
 {
-    // Initialize NVS
-    esp_err_t ret = nvs_flash_init();
-    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
-    {
-        ESP_ERROR_CHECK(nvs_flash_erase());
-        ret = nvs_flash_init();
-    }
-    ESP_ERROR_CHECK(ret);
-    settings_read_parameter_from_nvs();
-    sys_param = settings_get_parameter();
-
-    bsp_spiffs_mount();
-    bsp_i2c_init();
-    bsp_display_start();
-    bsp_board_init();
-    bsp_display_backlight_on();
-    ESP_LOGI(TAG, "bsp initalized");
-
-    ui_ctrl_init();
-    app_network_start();
-
-    ESP_LOGI(TAG, "speech recognition start");
-    app_sr_start(false);
-    audio_register_play_finish_cb(audio_play_finish_cb);
-
-    openai_init(sys_param->key);
-
     while (true)
     {
         ESP_LOGD(TAG, "\tDescription\tInternal\tSPIRAM");
@@ -149,4 +122,26 @@ void app_main()
                  heap_caps_get_minimum_free_size(MALLOC_CAP_SPIRAM));
         vTaskDelay(pdMS_TO_TICKS(5 * 1000));
     }
+}
+
+void app_main()
+{
+    settings_nvs_init();
+    settings_read_parameter_from_nvs();
+    sys_param = settings_get_parameter();
+
+    bsp_spiffs_mount();
+    bsp_i2c_init();
+    bsp_display_start();
+    bsp_board_init();
+    bsp_display_backlight_on();
+
+    ui_ctrl_init();
+    app_network_start();
+    openai_init(sys_param->key);
+
+    app_sr_start();
+    audio_register_play_finish_cb(audio_play_finish_cb);
+
+    monitor_memory_task();
 }

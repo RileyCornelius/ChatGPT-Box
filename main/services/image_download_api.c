@@ -23,6 +23,9 @@
 #include "esp_log.h"
 #include "esp_spiffs.h"
 
+// #define MAX_FILE_SIZE (1 * 1024 * 1024)
+// #define FILE_SIZE (256000)
+
 static char *TAG = "image_download";
 
 char *image_url = NULL;
@@ -139,7 +142,7 @@ static esp_err_t http_event_handler(esp_http_client_event_t *evt)
     return ESP_OK;
 }
 
-void download_image_request(const char *url)
+void download_image_request(char *url)
 {
     esp_http_client_config_t config = {
         .url = url,

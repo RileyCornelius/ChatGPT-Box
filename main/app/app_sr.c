@@ -197,7 +197,7 @@ esp_err_t app_sr_set_language(sr_language_t new_lang)
     return ESP_OK;
 }
 
-esp_err_t app_sr_start(bool record_en)
+esp_err_t app_sr_start(void)
 {
     esp_err_t ret = ESP_OK;
     ESP_RETURN_ON_FALSE(NULL == g_sr_data, ESP_ERR_INVALID_STATE, TAG, "SR already running");
