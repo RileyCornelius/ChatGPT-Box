@@ -22,9 +22,9 @@
 #include "bsp_board.h"
 #include "bsp/esp-bsp.h"
 #include "audio_player.h"
+#include "tts_api.h"
 #include "file_iterator.h"
 #include "app_ui_ctrl.h"
-#include "app_tts_api.h"
 #include "app_wifi.h"
 
 static const char *TAG = "app_audio";

@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include "esp_err.h"
 #include "esp_log.h"
-#include "app_tts_api.h"
+#include "tts_api.h"
 #include "esp_http_client.h"
 #include "app_audio.h"
 #include "app_ui_ctrl.h"
