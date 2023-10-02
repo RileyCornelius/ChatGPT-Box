@@ -13,6 +13,7 @@
 #include "esp_log.h"
 #include "hal/usb_phy_ll.h"
 #include "settings.h"
+#include "openai_api.h"
 
 static char *TAG = "ui-events";
 
@@ -45,7 +46,23 @@ void EventWifiResetConfirmClick(lv_event_t *e)
     }
 }
 
-void EventSettingsRegionValueChange(lv_event_t *e)
+void EventSettingsServiceValueChange(lv_event_t *e)
 {
-    // TODO
+    lv_obj_t *obj = lv_event_get_target(e);
+    uint8_t index = lv_dropdown_get_selected(obj);
+    if (index == SERVICE_TYPE_CHAT)
+    {
+        openai_service_type = SERVICE_TYPE_CHAT;
+        ESP_LOGI(TAG, "Service Type: Chat");
+    }
+    else if (index == SERVICE_TYPE_IMAGE)
+    {
+        openai_service_type = SERVICE_TYPE_IMAGE;
+        ESP_LOGI(TAG, "Service Type: Image");
+    }
+}
+
+void EventDalleImageClick(lv_event_t *e)
+{
+    ui_ctrl_go_to_listening_screen();
 }

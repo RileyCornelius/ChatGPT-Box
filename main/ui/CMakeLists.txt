@@ -2,6 +2,7 @@ SET(SOURCES screens/ui_ScreenSetup.c
     screens/ui_ScreenWifiReset.c
     screens/ui_ScreenListen.c
     screens/ui_ScreenSettings.c
+    screens/ui_ScreenImage.c
     ui.c
     components/ui_comp_hook.c
     ui_helpers.c

@@ -2,6 +2,14 @@
 
 #include <inttypes.h>
 
+extern uint8_t openai_service_type; // 0: chat, 1: image
+
+enum ServiceType
+{
+    SERVICE_TYPE_CHAT,
+    SERVICE_TYPE_IMAGE,
+};
+
 /**
  * Initialize the OpenAI API
  * @param api_key The OpenAI API key to use

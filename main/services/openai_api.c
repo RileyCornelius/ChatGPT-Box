@@ -9,6 +9,8 @@
 
 const char *TAG = "OpenAI";
 
+uint8_t openai_service_type = 0; // 0: chat, 1: image
+
 static OpenAI_t *openai = NULL;
 static OpenAI_AudioTranscription_t *audioTranscription = NULL;
 static OpenAI_ChatCompletion_t *chatCompletion = NULL;

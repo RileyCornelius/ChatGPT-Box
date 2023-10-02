@@ -2368,8 +2368,8 @@
                     "flags": 17,
                     "strtype": "OBJECT/Size",
                     "intarray": [
-                      72,
-                      24
+                      90,
+                      30
                     ],
                     "InheritedType": 7
                   },
@@ -3453,8 +3453,7 @@
                 "InheritedType": 11
               }
             ],
-            "saved_objtypeKey": "PANEL",
-            "tree_closed": true
+            "saved_objtypeKey": "PANEL"
           }
         ],
         "isPage": true,
@@ -4376,8 +4375,8 @@
                 "flags": 17,
                 "strtype": "OBJECT/Size",
                 "intarray": [
-                  87,
-                  33
+                  90,
+                  30
                 ],
                 "InheritedType": 7
               },
@@ -7189,7 +7188,8 @@
                     "InheritedType": 11
                   }
                 ],
-                "saved_objtypeKey": "PANEL"
+                "saved_objtypeKey": "PANEL",
+                "tree_closed": true
               },
               {
                 "guid": "GUID79344567-535371S9052113",
@@ -10232,7 +10232,8 @@
                             "InheritedType": 11
                           }
                         ],
-                        "saved_objtypeKey": "IMAGE"
+                        "saved_objtypeKey": "IMAGE",
+                        "tree_closed": true
                       }
                     ],
                     "locked": false,
@@ -16269,7 +16270,7 @@
                       {
                         "nid": 977875457,
                         "strtype": "LABEL/Text",
-                        "strval": "Region Select",
+                        "strval": "Service Select",
                         "InheritedType": 10
                       },
                       {
@@ -16575,7 +16576,7 @@
                       {
                         "nid": -1713613816,
                         "strtype": "DROPDOWN/Options",
-                        "strval": "Espressif\\nOpenAI",
+                        "strval": "Chat\\nImage",
                         "InheritedType": 10
                       },
                       {
@@ -16677,7 +16678,6 @@
                           },
                           {
                             "nid": 1444321515,
-                            "flags": 1048576,
                             "strtype": "_event/action",
                             "strval": "CALL FUNCTION",
                             "childs": [
@@ -16702,7 +16702,7 @@
                               {
                                 "nid": 848023478,
                                 "strtype": "CALL FUNCTION/Function_name",
-                                "strval": "EventSettingsRegionValueChange",
+                                "strval": "EventSettingsServiceValueChange",
                                 "InheritedType": 10
                               },
                               {
@@ -17432,7 +17432,8 @@
                 "InheritedType": 11
               }
             ],
-            "saved_objtypeKey": "PANEL"
+            "saved_objtypeKey": "PANEL",
+            "tree_closed": true
           },
           {
             "guid": "GUID52093125-327535S6002116",
@@ -18984,7 +18985,7 @@
     "theme_color2": 0,
     "exportFolderPath": "C:\\Projects\\01-Current\\ChatGPT-Box\\main\\ui",
     "projectExportFolderPath": "C:\\Projects\\01-Current\\ChatGPT-Box",
-    "backup_cnt": 372,
+    "backup_cnt": 376,
     "autosave_cnt": 0,
     "lvgl_version": "8.3.4",
     "callfuncsexport": "DONT_EXPORT",

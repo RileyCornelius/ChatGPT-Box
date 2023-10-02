@@ -28,54 +28,6 @@
 
 static char *TAG = "image_download";
 
-char *image_url = NULL;
-
-void scan_spiffs(void)
-{
-    struct dirent *p_dirent = NULL;
-    DIR *p_dir_stream = opendir("/spiffs");
-
-    /* Scan files in storage */
-    while (true)
-    {
-        p_dirent = readdir(p_dir_stream);
-        if (NULL != p_dirent)
-        {
-            ESP_LOGI(TAG, "Found file %s", p_dirent->d_name);
-        }
-        else
-        {
-            closedir(p_dir_stream);
-            break;
-        }
-    }
-}
-
-void write_spiffs(void)
-{
-    // Define a buffer with the data you want to write
-    char data_to_write[] = "Hello, SPIFFS!";
-
-    // Open a file for writing. The second argument specifies the mode ("w" for write).
-    FILE *file = fopen("/spiffs/image.png", "w");
-    if (file == NULL)
-    {
-        ESP_LOGE(TAG, "Failed to open file for writing");
-    }
-    else
-    {
-        // Write data to the file
-        int bytes_written = fwrite(data_to_write, 1, sizeof(data_to_write), file);
-        if (bytes_written < sizeof(data_to_write))
-        {
-            ESP_LOGE(TAG, "Failed to write all data to the file");
-        }
-
-        // Close the file
-        fclose(file);
-    }
-}
-
 static esp_err_t http_event_handler(esp_http_client_event_t *evt)
 {
     static uint32_t file_total_len = 0;
@@ -90,6 +42,7 @@ static esp_err_t http_event_handler(esp_http_client_event_t *evt)
         ESP_LOGI(TAG, "HTTP_EVENT_ON_CONNECTED");
         if (file == NULL)
         {
+            remove("/spiffs/image.png");
             file = fopen("/spiffs/image.png", "w");
             if (file == NULL)
             {
@@ -122,14 +75,6 @@ static esp_err_t http_event_handler(esp_http_client_event_t *evt)
         fclose(file);
         file = NULL;
         file_total_len = 0;
-        scan_spiffs();
-
-        ESP_LOGI(TAG, "Create a new style for the image");
-
-        lv_obj_t *img = lv_img_create(ui_PanelSettings);
-        lv_img_set_src(img, "S:/spiffs/image.png");
-        lv_obj_align(img, LV_ALIGN_CENTER, 0, 0);
-
         break;
     case HTTP_EVENT_DISCONNECTED:
         ESP_LOGI(TAG, "HTTP_EVENT_DISCONNECTED");
@@ -142,7 +87,7 @@ static esp_err_t http_event_handler(esp_http_client_event_t *evt)
     return ESP_OK;
 }
 
-void download_image_request(char *url)
+void image_download_request(char *url)
 {
     esp_http_client_config_t config = {
         .url = url,
@@ -161,15 +106,4 @@ void download_image_request(char *url)
     {
         ESP_LOGE(TAG, "HTTP request failed, error = %d", err);
     }
-}
-
-void create_image_ui()
-{
-    lv_obj_t *img = lv_img_create(ui_PanelSettings);
-    lv_img_set_src(img, "S:/spiffs/emoji_u1f914.png");
-    lv_obj_align(img, LV_ALIGN_CENTER, 0, 0);
-
-    scan_spiffs();
-
-    write_spiffs();
 }

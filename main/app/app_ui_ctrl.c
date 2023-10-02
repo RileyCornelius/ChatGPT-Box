@@ -338,3 +338,19 @@ void ui_ctrl_guide_jump(void)
         lv_event_send(ui_ButtonSetup, LV_EVENT_CLICKED, 0);
     }
 }
+
+void ui_ctrl_go_to_listening_screen(void)
+{
+    lv_img_set_src(ui_DalleImage, NULL);
+    lv_obj_add_flag(ui_DalleImage, LV_OBJ_FLAG_HIDDEN);
+    lv_scr_load(ui_ScreenListen);
+    ui_ctrl_show_panel(UI_CTRL_PANEL_SLEEP, 0);
+}
+
+void ui_ctrl_go_to_image_screen(void)
+{
+    lv_scr_load(ui_ScreenImage);
+    vTaskDelay(pdMS_TO_TICKS(250)); // need to wait for screen load
+    lv_img_set_src(ui_DalleImage, "S:/spiffs/image.png");
+    lv_obj_clear_flag(ui_DalleImage, LV_OBJ_FLAG_HIDDEN);
+}

@@ -23,8 +23,8 @@ lv_obj_set_style_text_align(ui_LabelWifiResetTitle, LV_TEXT_ALIGN_CENTER, LV_PAR
 lv_obj_set_style_text_font(ui_LabelWifiResetTitle, &ui_font_PingFangEN20, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_ButtonWifiResetConfirm = lv_btn_create(ui_ScreenWifiReset);
-lv_obj_set_width( ui_ButtonWifiResetConfirm, 87);
-lv_obj_set_height( ui_ButtonWifiResetConfirm, 33);
+lv_obj_set_width( ui_ButtonWifiResetConfirm, 90);
+lv_obj_set_height( ui_ButtonWifiResetConfirm, 30);
 lv_obj_set_x( ui_ButtonWifiResetConfirm, 0 );
 lv_obj_set_y( ui_ButtonWifiResetConfirm, -10 );
 lv_obj_set_align( ui_ButtonWifiResetConfirm, LV_ALIGN_BOTTOM_MID );

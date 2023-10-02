@@ -116,8 +116,8 @@ lv_obj_set_style_text_align(ui_LabelSetupStepTile, LV_TEXT_ALIGN_CENTER, LV_PART
 lv_obj_set_style_text_font(ui_LabelSetupStepTile, &ui_font_PingFangEN20, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_ButtonSetup = lv_btn_create(ui_PanelSetupSteps);
-lv_obj_set_width( ui_ButtonSetup, 72);
-lv_obj_set_height( ui_ButtonSetup, 24);
+lv_obj_set_width( ui_ButtonSetup, 90);
+lv_obj_set_height( ui_ButtonSetup, 30);
 lv_obj_set_x( ui_ButtonSetup, 0 );
 lv_obj_set_y( ui_ButtonSetup, -20 );
 lv_obj_set_align( ui_ButtonSetup, LV_ALIGN_BOTTOM_MID );
