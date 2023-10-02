@@ -1353,8 +1353,7 @@
                 "InheritedType": 11
               }
             ],
-            "saved_objtypeKey": "PANEL",
-            "tree_closed": true
+            "saved_objtypeKey": "PANEL"
           },
           {
             "guid": "GUID25962234-792117S6882150",
@@ -14439,7 +14438,8 @@
                 "InheritedType": 4
               }
             ],
-            "saved_objtypeKey": "IMAGE"
+            "saved_objtypeKey": "IMAGE",
+            "tree_closed": true
           }
         ],
         "isPage": true,
@@ -14694,8 +14694,7 @@
             "InheritedType": 4
           }
         ],
-        "saved_objtypeKey": "SCREEN",
-        "tree_closed": true
+        "saved_objtypeKey": "SCREEN"
       },
       {
         "guid": "GUID37244942-102377S8842116",
@@ -18985,7 +18984,7 @@
     "theme_color2": 0,
     "exportFolderPath": "C:\\Projects\\01-Current\\ChatGPT-Box\\main\\ui",
     "projectExportFolderPath": "C:\\Projects\\01-Current\\ChatGPT-Box",
-    "backup_cnt": 371,
+    "backup_cnt": 372,
     "autosave_cnt": 0,
     "lvgl_version": "8.3.4",
     "callfuncsexport": "DONT_EXPORT",

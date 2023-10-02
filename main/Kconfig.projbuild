@@ -19,7 +19,7 @@ menu "Example Configuration"
         string "OpenAI model"
         default "gpt-3.5-turbo"
         help
-            OpenAI model eg gpt-3.5-turbo (chatgpt).
+            OpenAI model from https://platform.openai.com/docs/models/gpt-3-5
 
     config VOICE_ID
         string "Speaker Id"
