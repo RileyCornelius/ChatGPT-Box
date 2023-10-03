@@ -1,30 +1,14 @@
-#include "image_download_api.h"
 #include <string.h>
+#include <dirent.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/event_groups.h"
 #include "esp_system.h"
-#include "esp_log.h"
-#include "nvs_flash.h"
-#include "app_ui_ctrl.h"
-#include "OpenAI.h"
-#include "tts_api.h"
-#include "app_sr.h"
-#include "bsp/esp-bsp.h"
-#include "bsp_board.h"
-#include "app_audio.h"
-#include "app_wifi.h"
-#include "settings.h"
-#include "ui.h"
 #include "esp_spiffs.h"
-#include <dirent.h>
 #include "esp_crt_bundle.h"
 #include "esp_http_client.h"
 #include "esp_log.h"
-#include "esp_spiffs.h"
-
-// #define MAX_FILE_SIZE (1 * 1024 * 1024)
-// #define FILE_SIZE (256000)
+#include "image_download_api.h"
 
 static char *TAG = "image_download";
 
@@ -87,7 +71,7 @@ static esp_err_t http_event_handler(esp_http_client_event_t *evt)
     return ESP_OK;
 }
 
-void image_download_request(char *url)
+esp_err_t image_download_request(char *url)
 {
     esp_http_client_config_t config = {
         .url = url,
@@ -106,4 +90,6 @@ void image_download_request(char *url)
     {
         ESP_LOGE(TAG, "HTTP request failed, error = %d", err);
     }
+
+    return err;
 }

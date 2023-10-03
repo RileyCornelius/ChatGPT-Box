@@ -24,12 +24,11 @@
 #include "image_download_api.h"
 
 #define SCROLL_START_DELAY_S (1.5)
+
 static char *TAG = "app_main";
-static sys_param_t *sys_param = NULL;
+static sys_param_t *sys_param;
 
-extern uint8_t openai_service_type;
-
-/* program flow. This function is called in app_audio.c if chat option is selected */
+/* program flow. This function is called in app_audio.c */
 esp_err_t start_openai(uint8_t *audio, int audio_len)
 {
     ui_ctrl_show_panel(UI_CTRL_PANEL_GET, 0);
@@ -54,9 +53,13 @@ esp_err_t start_openai(uint8_t *audio, int audio_len)
 
     if (openai_service_type == SERVICE_TYPE_CHAT)
     {
-        char *response = openai_chat(text);
+        char text_with_prompt[512];
+        sprintf(text_with_prompt, "Your name is Chat Box. You are a chat bot on a ESP32 S3 Box device powered by OpenAI. Answer the following question but keep it brief: %s", text);
 
-        if (response != NULL && (strcmp(response, "invalid_request_error") == 0 || strcmp(response, "server_error") == 0))
+        char *response = openai_chat(text_with_prompt);
+
+        ESP_LOGI(TAG, "response: %s", response);
+        if (response == NULL || (strcmp(response, "invalid_request_error") == 0 || strcmp(response, "server_error") == 0))
         {
             // UI listen fail
             ui_ctrl_label_show_text(UI_CTRL_LABEL_LISTEN_SPEAK, "Sorry, I can't understand.");
@@ -64,25 +67,15 @@ esp_err_t start_openai(uint8_t *audio, int audio_len)
             return ESP_FAIL;
         }
 
-        // UI listen success
-        ui_ctrl_label_show_text(UI_CTRL_LABEL_REPLY_QUESTION, text);
         ui_ctrl_label_show_text(UI_CTRL_LABEL_LISTEN_SPEAK, response);
-
-        if (strcmp(response, "invalid_request_error") == 0)
-        {
-            ui_ctrl_label_show_text(UI_CTRL_LABEL_LISTEN_SPEAK, "Sorry, I can't understand.");
-            ui_ctrl_show_panel(UI_CTRL_PANEL_SLEEP, 2000);
-            return ESP_FAIL;
-        }
-
         ui_ctrl_label_show_text(UI_CTRL_LABEL_REPLY_CONTENT, response);
         ui_ctrl_show_panel(UI_CTRL_PANEL_REPLY, 0);
+
         esp_err_t status = text_to_speech_request(response, AUDIO_CODECS_MP3);
 
         if (status != ESP_OK)
         {
             ESP_LOGE(TAG, "Error creating ChatGPT request: %s\n", esp_err_to_name(status));
-            // UI reply audio fail
             ui_ctrl_show_panel(UI_CTRL_PANEL_SLEEP, 0);
         }
         else
@@ -99,9 +92,20 @@ esp_err_t start_openai(uint8_t *audio, int audio_len)
     {
         char *image_url = openai_create_image_url(text);
         ESP_LOGI(TAG, "image_url: %s", image_url);
-        image_download_request(image_url);
+        esp_err_t status = image_download_request(image_url);
 
-        ui_ctrl_go_to_image_screen();
+        if (status != ESP_OK)
+        {
+            ESP_LOGE(TAG, "Error creating image request: %s\n", esp_err_to_name(status));
+            ui_ctrl_label_show_text(UI_CTRL_LABEL_LISTEN_SPEAK, "Image failed to download.");
+            ui_ctrl_show_panel(UI_CTRL_PANEL_SLEEP, 2000);
+            return ESP_FAIL;
+        }
+        else
+        {
+            // Show the generated image
+            ui_ctrl_go_to_image_screen();
+        }
     }
     free(text);
 
