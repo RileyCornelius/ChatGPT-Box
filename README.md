@@ -1,5 +1,8 @@
 # ChatGPT Example
 
+## YouTube Demo
+[![Chat box Demo](https://img.youtube.com/vi/sqJvyQHYTKw/0.jpg)](https://www.youtube.com/watch?v=sqJvyQHYTKw "Chat box Demo")
+
 | Board             | Support Status |
 | ----------------- | -------------- |
 | ESP32-S3-BOX      | YES            |
