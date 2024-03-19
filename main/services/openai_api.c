@@ -5,7 +5,7 @@
 #include "esp_system.h"
 #include "esp_log.h"
 #include "OpenAI.h"
-#include "openai.h"
+#include "openai_api.h"
 
 const char *TAG = "OpenAI";
 
